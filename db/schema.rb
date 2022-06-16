@@ -10,8 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_06_16_055205) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name"
+    t.string "address"
+    t.string "postcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -35,14 +44,6 @@ ActiveRecord::Schema.define(version: 2022_06_16_055205) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "postcode"
-    t.string "address"
-    t.string "phone_number"
-    t.boolean "is_deleted", default: true, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -52,7 +53,13 @@ ActiveRecord::Schema.define(version: 2022_06_16_055205) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-create_table "items", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", force: :cascade do |t|
     t.integer "genre_id"
     t.string "name"
     t.text "description"
@@ -62,12 +69,25 @@ create_table "items", force: :cascade do |t|
     t.datetime "updated_at", precision: 6, null: false
   end
 
-create_table "ordered_items", force: :cascade do |t|
+  create_table "ordered_items", force: :cascade do |t|
     t.integer "item_id"
     t.integer "order_id"
     t.integer "price"
     t.integer "making_status"
     t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "postage"
+    t.integer "subtotal"
+    t.integer "payment_method", default: 0
+    t.string "name"
+    t.string "address"
+    t.string "postcode"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
