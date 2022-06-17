@@ -26,11 +26,11 @@ Rails.application.routes.draw do
         delete '/destroy_all', action: :destroy_all
       end
     resources :addresses, except:[:new, :show]
-    resources :genres, only:[:new, :create, :show, :index]
+    resources :orders, only:[:new, :create, :show, :index]
     get '/unsubscribe' => 'customer/customers#unsubscribe'
     get '/withdraw' => 'customer/customers#withdraw'
-    get '/confirm' => 'customer/genres#confirm'
-    get '/complete' => 'customer/genres#complete'
+    get '/confirm' => 'customer/orders#confirm'
+    get '/complete' => 'customer/orders#complete'
 
     end
   end
