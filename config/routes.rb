@@ -7,8 +7,31 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    root to: "admins/orders#index"
+    resources :customers, only:[:show, :index, :edit, :update]
+    resources :orders, only:[:show, :index, :update]
+    resources :items, except:[:destroy]
+    resources :genres, only:[:create, :index, :edit, :update]
+    resources :ordered_item, only:[:update]
+  end
 
   root to: "customer/homes#top"
+  get '/about' => 'customer/homes#about'
 
+  resources :customers, only:[:show, :edit, :update] do
+    resources :items, only:[:show, :index]
+    resources :cart_items, only:[:index, :update, :destroy, :create] do
+      collection do
+        delete '/destroy_all', action: :destroy_all
+      end
+    resources :addresses, except:[:new, :show]
+    resources :genres, only:[:new, :create, :show, :index]
+    get '/unsubscribe' => 'customer/customers#unsubscribe'
+    get '/withdraw' => 'customer/customers#withdraw'
+    get '/confirm' => 'customer/genres#confirm'
+    get '/complete' => 'customer/genres#complete'
+
+    end
+  end
 end
