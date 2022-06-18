@@ -15,8 +15,7 @@
     </tr>
     <tr>
       <td>ジャンル</td>
-      <td>
-        <%= f.select :genre, ['ケーキ', 'プリン', '焼き菓子', 'キャンディ'], {include_blank: '---'} %>
+      <td><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
       </td>
     </tr>
     <tr>
@@ -25,7 +24,10 @@
     </tr>
       <td>販売ステータス</td>
       <td>
-g
+        <%= f.radio_button :checked, :true %>
+        <%= f.label :checked, "販売中" %>
+        <%= f.radio_button :checked, :false %>
+        <%= f.label :checked, "販売停止中" %>
       </td>
     </tr>
     <tr>
