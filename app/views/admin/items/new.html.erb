@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <td>ジャンル</td>
-      <td>
+      <td><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
       </td>
     </tr>
     <tr>
@@ -23,7 +23,12 @@
       <td><%= f.text_field :no_tax %></td>
     </tr>
       <td>販売ステータス</td>
-      <td></td>
+      <td>
+        <%= f.radio_button :checked, :true %>
+        <%= f.label :checked, "販売中" %>
+        <%= f.radio_button :checked, :false %>
+        <%= f.label :checked, "販売停止中" %>
+      </td>
     </tr>
     <tr>
       <td><%= f.submit '新規登録' %></td>
