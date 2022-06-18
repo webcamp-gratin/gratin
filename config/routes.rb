@@ -21,18 +21,17 @@ Rails.application.routes.draw do
   get '/about' => 'customer/homes#about'
 
   resources :customers, only:[:show, :edit, :update] do
+    get 'customer/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customer/:id/withdraw' => 'customers#withdraw', as: 'withdrawal'
+    get '/confirm' => 'customer/orders#confirm'
+    get '/complete' => 'customer/orders#complete'
     resources :items, only:[:show, :index]
     resources :cart_items, only:[:index, :update, :destroy, :create] do
       collection do
         delete '/destroy_all', action: :destroy_all
       end
-    resources :addresses, except:[:new, :show]
-    resources :orders, only:[:new, :create, :show, :index]
-    get '/unsubscribe' => 'customer/customers#unsubscribe'
-    get '/withdraw' => 'customer/customers#withdraw'
-    get '/confirm' => 'customer/orders#confirm'
-    get '/complete' => 'customer/orders#complete'
-
+      resources :addresses, except:[:new, :show]
+      resources :orders, only:[:new, :create, :show, :index]
     end
   end
 end
