@@ -1,1 +1,24 @@
-<h1>index</h1>
+<h2>商品一覧</h2>
+<div><%= link_to "+", new_admin_item_path %></div>
+<div>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜き価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name, admin_item_path(item) %></td>
+        <td><%= item.no_tax %></td>
+        <td><%= item.genre.name %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>

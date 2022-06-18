@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :customers, controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
+
+  devise_for :customers, skip: [:passwords], controllers: {
     registrations: "customer/registrations",
     sessions: 'customer/sessions'
   }
 
-  devise_for :admin, controllers: {
-    sessions: "admin/sessions"
-  }
   namespace :admin do
     root to: "admins/orders#index"
     resources :customers, only:[:show, :index, :edit, :update]
