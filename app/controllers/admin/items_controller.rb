@@ -6,8 +6,8 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    
-      redirect_to admin_item_path(@item)
+    @item.save!
+    redirect_to admin_item_path(@item)
   end
 
   def index
@@ -28,8 +28,11 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  private
+  def with_tax_price
+    (no_tax * 1.1).floor
+  end
 
+  private
   def item_params
     params.require(:item).permit(:genre_id, :name, :description, :no_tax, :is_active, :image)
   end
