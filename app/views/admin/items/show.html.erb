@@ -19,7 +19,12 @@
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th><%= @item.is_active, [['販売中', true], ['販売停止', false]] %></th>
+      <th><% if @item.is_active == true %>
+          販売中
+          <% else %>
+          売切れ
+          <% end %>
+      </th>
      </tr>
      <tr>
       <th><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %></th>
