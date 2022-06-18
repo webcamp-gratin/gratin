@@ -1,6 +1,6 @@
 <h2>商品詳細</h2>
 <div>
-  <%= image_tag %>
+  <%= image_tag @item.image, accept: "image/*" %>
 </div>
 <div>
   <table>
@@ -19,7 +19,8 @@
     <tr>
       <th>税込価格（税抜価格）</th>
       <th>
-        <%= @item.with_tax_price %>(<%= @item.no_tax %>)</th>
+        <%= (@item.no_tax * 1.1).floor %>(<%= @item.no_tax %>)円
+      </th>
     </tr>
     <tr>
       <th>販売ステータス</th>
@@ -29,8 +30,8 @@
           売切れ
           <% end %>
       </th>
-     </tr>
-     <tr>
+    </tr>
+    <tr>
       <th><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %></th>
     </tr>
   </table>

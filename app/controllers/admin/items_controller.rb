@@ -27,10 +27,7 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-  end
-
-  def with_tax_price
-    (no_tax * 1.1).floor
+    @genres = Genre.all
   end
 
   private
