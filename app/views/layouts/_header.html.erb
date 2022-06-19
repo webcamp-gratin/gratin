@@ -8,13 +8,21 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to 'マイページ', customer_path(current_customer), class: 'nav-link text-light' %>
+            <%#= link_to 'マイページ', customer_path(current_customer), class: 'nav-link text-light' %>
           </li>
           <li>
+<<<<<<< HEAD
             <%#= link_to '商品一覧', customer_items_path, class: 'nav-link text-light' %>
           </li>
           <li>
             <%#=  link_to 'カート', customer_cart_items_path , class: 'nav-link text-light' %>
+=======
+            <%#=  link_to '商品一覧', customer_items_path, class: 'nav-link text-light' %>
+          </li>
+          <li>
+            <%#=  link_to 'カート', customer_cart_items_path , class: 'nav-link text-light' %>
+          </li>
+>>>>>>> 427e033c325dba27ef71f255fdcb118ea7cfb173
           <li>
             <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
           </li>
