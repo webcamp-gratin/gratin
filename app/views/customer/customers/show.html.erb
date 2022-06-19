@@ -4,7 +4,7 @@
   <table>
     <tr>
       <th>氏名</th>
-      <th><%= @customer.name %></th>
+      <th><%= @customer.first_name %><%= @customer.last_name %></th>
     </tr>
     <tr>
       <th>カナ</th>
@@ -28,6 +28,6 @@
     </tr>
   </table>
 <h4>配送先</h4>
-  <%= link_to "一覧を見る", customer_orders_path, class: "btn btn-primary" %>
+  <%#= link_to "一覧を見る", customer_orders_path, class: "btn btn-primary" %>
 <h4>注文履歴</h4>
-  <%= link_to "一覧を見る", customer_addresses_path, class: "btn btn-primary" %>
+  <%#= link_to "一覧を見る", customer_addresses_path, class: "btn btn-primary" %>
