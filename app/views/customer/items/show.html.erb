@@ -1,0 +1,10 @@
+<div>
+  <%= image_tag @item.image, accept: "image/*" %>
+</div>
+<div>
+  <%= @item.name %>
+  <%= @item.description %>
+  <%= (@item.no_tax * 1.1).floor %>(税込)
+  <%#= select_tag(options = *[1..5]) %>
+  <%= link_to 'カートに入れる', cart_items_path,class: "btn btn-success" %>
+</div>
