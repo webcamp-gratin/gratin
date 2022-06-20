@@ -34,13 +34,13 @@
       <td><%= f.label :会員ステータス %></td>
       <td>
         <%= f.radio_button :checked, :true %>
-        <%= f.label :checked, "有効" %>
-        <%= f.radio_button :checked, :false %>
         <%= f.label :checked, "退会" %>
+        <%= f.radio_button :checked, :false %>
+        <%= f.label :checked, "有効" %>
       </td>
     </tr>
     <tr>
-      <td><%= f.submit '変更を保存', class: 'btn btn-success' %></td>
+      <td><%= f.submit '変更を保存' %></td>
     </tr>
   <% end %>
 </table>
