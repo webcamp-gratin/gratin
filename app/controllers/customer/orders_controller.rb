@@ -17,6 +17,21 @@ class Customer::OrdersController < ApplicationController
   def show
     @oredr = Order.find(params[:id])
   end
+  
+  def confirm
+    @order = Order.new
+    if params[:order][:address] == "own_address"
+      @order.postcode = current_customer.postcode
+      @order.address = current_customer.customer_address
+      @order.name = current_customer.name
+    elsif params[:order][:address] == "registered_address"
+      
+      
+    @address = Address.find(params[:order][:address_id])
+    @order.postcode = current_customer.postcode
+    @order.address = current_customer.address
+    @order.name = current_customer.first_name + current_customer.last_name
+  end
 
   private
   def order_params
