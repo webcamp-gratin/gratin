@@ -1,6 +1,6 @@
 <h1>商品編集</h1>
-<table>
-  <%= form_with model: @item, url: admin_item_path, method: :patch, local:true do |f| %>
+<table class="table">
+  <%= form_with model: @item, url: admin_item_path(@item), method: :patch, local:true do |f| %>
     <tr>
       <td>商品画像</td>
       <td><%= f.file_field :image %></td>
@@ -27,7 +27,7 @@
         <%= f.radio_button :is_active, :true %>
         <%= f.label :is_active, "販売中" %>
         <%= f.radio_button :is_active, :false %>
-        <%= f.label :is_active "販売停止中" %>
+        <%= f.label :is_active, "販売停止中" %>
       </td>
     </tr>
     <tr>
