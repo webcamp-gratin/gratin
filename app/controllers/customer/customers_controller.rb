@@ -23,6 +23,7 @@ class Customer::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.update(is_deleted: false)
     reset_session
+    flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
 

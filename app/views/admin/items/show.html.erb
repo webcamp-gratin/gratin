@@ -24,11 +24,12 @@
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th><% if @item.is_active == true %>
+      <th>
+        <% if @item.is_active == true %>
           販売中
-          <% else %>
+        <% else %>
           売切れ
-          <% end %>
+        <% end %>
       </th>
     </tr>
     <tr>
