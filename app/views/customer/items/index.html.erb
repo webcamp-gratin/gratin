@@ -4,7 +4,7 @@
 <% @items.each do |item| %>
   <div>
     <%= link_to item_path(item.id) do %>
-      <%= image_tag item, image, accept: "image/*" %>
+      <%= image_tag item.image, accept: "image/*", size:'100x100' %>
     <% end %>
     <%= item.name %>
     <%= item.no_tax %>
