@@ -1,0 +1,29 @@
+<div class="item-index">
+    <h3>商品一覧</h3>
+        <table>
+          <tbody>
+            <tr class="item-box">
+              <% @genre.items.each do |item| %>
+                <td class="item">
+                  <%= link_to item_path(item) do %>
+                    <%= image_tag @item.image, accept: "image/*" %>
+                    <%= item.name %><br>
+                    ￥<%= item.no_tax %>
+                  <% end %>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="item">
+  <% @genres.each do |genre| %>
+      <%= link_to _path(@item) do %>
+        <%= item.name %><br>
+      <% end %>
+  <% end %>
+</div>
