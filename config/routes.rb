@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     resources :customers, only:[:show, :edit, :update]
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
-    get '/confirm' => 'customer/orders#confirm'
-    get '/complete' => 'customer/orders#complete'
+    get '/orders/confirm' => 'orders#confirm'
+    get '/orders/complete' => 'orders#complete'
     resources :items, only:[:show, :index]
     resources :addresses, except:[:new, :show]
     resources :orders, only:[:new, :create, :show, :index]
