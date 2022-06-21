@@ -1,46 +1,50 @@
-<h2><%= @customer.full_name %>さんの会員詳細</h2>
-<div>
-  <table>
-    <tr>
-      <th>会員ID</th>
-      <th><%= @customer.id %></th>
-    </tr>
-    <tr>
-      <th>氏名</th>
-      <th><%= @customer.full_name %></th>
-    </tr>
-    <tr>
-      <th>フリガナ</th>
-      <th><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></th>
-    </tr>
-    <tr>
-      <th>郵便番号</th>
-      <th><%= @customer.postcode %></th>
-    </tr>
-    <tr>
-      <th>住所</th>
-      <th><%= @customer.address %></th>
-    </tr>
-    <tr>
-      <th>電話番号</th>
-      <th><%= @customer.phone_number %></th>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <th><%= @customer.email %></th>
-    </tr>
-    <tr>
-      <th>会員ステータス</th>
-      <th>
-        <% if @customer.is_deleted == false %>
-          有効
-        <% else %>
-          退会
-        <% end %>
-    </tr>
-    <tr>
-      <th><%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %></th>
-      <th><%= link_to "注文履歴一覧をみる", admin_orders_path, class: "btn btn-danger" %></th>
-    </tr>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-md-offset-2">
+      <h2><%= @customer.full_name %>さんの会員詳細</h2>
+      <table>
+        <tr>
+          <th class="col-sm-2 mb-1">会員ID</th>
+          <th class="col-sm-2 mb-1"><%= @customer.id %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">氏名</th>
+          <th class="col-sm-2 mb-1"><%= @customer.full_name %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">フリガナ</th>
+          <th class="col-sm-2 mb-1"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">郵便番号</th>
+          <th class="col-sm-2 mb-1"><%= @customer.postcode %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">住所</th>
+          <th class="col-sm-2 mb-1"><%= @customer.address %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">電話番号</th>
+          <th class="col-sm-2 mb-1"><%= @customer.phone_number %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">メールアドレス</th>
+          <th class="col-sm-2 mb-1"><%= @customer.email %></th>
+        </tr>
+        <tr>
+          <th class="col-sm-2 mb-1">会員ステータス</th>
+          <th class="col-sm-2 mb-1">
+            <% if @customer.is_deleted == false %>
+              有効
+            <% else %>
+              退会
+            <% end %>
+        </tr>
+        <tr>
+          <th><%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %></th>
+          <th><%= link_to "注文履歴一覧をみる", admin_orders_path, class: "btn btn-primary" %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
