@@ -2,12 +2,13 @@ class Customer::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @addresses = Address.where(customer: current_customer)
   end
 
   def create
     @order = Order.new(order_params)
     @order.save
-    redirect_to customer_confirm_path
+    redirect_to orders_confirm_path
   end
 
   def index
@@ -20,21 +21,11 @@ class Customer::OrdersController < ApplicationController
 
   #newから送られてきたパラメータの取得
   def confirm
-    @order = Order.new(order_params)
-    if params[:order][:address] == "own_address" 
-      @order.postcode = current_customer.postcode
-      @order.address = current_customer.address
-      @order.name = current_customer.name
-    elsif params[:order][:address] == "registered_address"
-      @order.postcode = current_user.find(params[:order][:registered_address]).postcode
-      @order.address = current_user.find(params[:order][:registered_address]).address
-      @order.name = current_user.find(params[:order][:registered_address]).name
-    elsif params[:order][:address] == "new_address"
-      @order.postcode = params[:order][:postcode]
-      @order.address = params[:order][:address]
-      @order.name = params[:order][:name]
-    end
+    @order = Order.new(customer: current_customer)
 
+
+    @cart_items = current_customer.cart_items
+    @total_price = @cart_items.sum{|cart_item|cart_item.item.no_tax * cart_item.amount * 1.1}
 
   end
 
