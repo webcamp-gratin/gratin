@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h3>注文情報確認</h3>
+    </div>
+      <table class="table tabble-hover table-bordered col-xs-10">
+        <thead>
+          <tr class="info">
+            <th class="col-x-3">商品名</th>
+            <th class="col-x-3">単価(税込)</th>
+            <th class="col-x-3">数量</th>
+            <th class="col-x-3">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td class="col-x-3"><%= image_tag cart_item.item.image, :size => '50x50' %><%= cart_item.item.name %></td>
+            <td class="col-x-3"><%= ((cart_item.item.no_tax * 1.1).floor).to_s(:delimited) %></td>
+            <td class="col-x-3"><%= cart_item.amount %></td>
+            <td class="col-x-3"><%= ((cart_item.item.no_tax * 1.1 *cart_item.amount).floor).to_s(:delimited) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <table class="table">
+        <tr>
+          <th>送料</th>
+          <th>800</th>
+        </tr>
+        <tr>
+          <th>商品合計</th>
+          <th><%= ((@total_price).floor).to_s(:delimited) %></th>
+        </tr>
+        <tr>
+          <th>請求金額</th>
+          <th><%=( (@total_price + 800).floor).to_s(:delimited) %></th>
+        </tr>
+      </table>
+      <h3>支払方法</h3>
+        <%= @order.payment_method %>
+      <h3>お届け先</h3>
+      <%= "#{@order.postcode} #{@order.address} 　#{@order.name}" %>
+  </div>
+</div>
