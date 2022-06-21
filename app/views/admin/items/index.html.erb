@@ -1,32 +1,36 @@
 <h2>商品一覧</h2>
-<div><%= link_to "+", new_admin_item_path %></div>
-<div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜き価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <%= link_to new_admin_item_path, class: "btn pull-right" do %>
+    <i class="fas fa-duotone fa-circle-plus"></i>
+    <% end %>
+    <table class="table table-hover justify-center">
+      <thead>
         <tr>
-          <td><%= item.id %></td>
-          <td><%= link_to item.name, admin_item_path(item) %></td>
-          <td><%= item.no_tax %></td>
-          <td><%= item.genre.name %></td>
-          <td>
-            <% if item.is_active == true %>
-              販売中
-            <% else %>
-              売切れ
-            <% end %>
-          </td>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜き価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item) %></td>
+            <td><%= item.no_tax %></td>
+            <td><%= item.genre.name %></td>
+            <td>
+              <% if item.is_active == true %>
+                販売中
+              <% else %>
+                売切れ
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
