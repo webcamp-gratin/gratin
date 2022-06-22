@@ -3,7 +3,7 @@
     <div>
       <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
         <div>
-          <%= f.radio_button :payment_method, :credit_card, chedked: true %>
+          <%= f.radio_button :payment_method, :credit_card, chedked: "chedked" %>
           <%= f.label :payment_method_credit_card, 'クレジットカード' %><br>
         </div>
         <div>

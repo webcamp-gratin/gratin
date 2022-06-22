@@ -23,7 +23,6 @@ class Customer::OrdersController < ApplicationController
   def confirm
     @order = Order.new(customer: current_customer)
 
-
     @cart_items = current_customer.cart_items
     @total_price = @cart_items.sum{|cart_item|cart_item.item.no_tax * cart_item.amount * 1.1}
 
