@@ -3,11 +3,11 @@
     <div class="col-sm-2 bg-secondary text-light mt-3">
        <h4>商品詳細</h4>
     </div>
-    <div class="col-sm-12 mx-auto d-flex">
-      <div class="flex-sm-fill">
-        <%= image_tag @item.image, :size => '250x300', accept: "image/*" %>
+    <div class="col-sm-12 mx-auto mt-5 d-flex">
+      <div class="col-sm_4 flex-sm-fill">
+        <%= image_tag @item.image, :size => '300x250', accept: "image/*" %>
       </div>
-      <div class="flex-sm-fill">
+      <div class="col-sm_6 flex-sm-fill">
         <table class="table">
           <tr>
             <th>商品名</th>
@@ -38,7 +38,7 @@
             </th>
           </tr>
           <tr>
-            <th><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %></th>
+            <th><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success col-sm-6" %></th>
           </tr>
         </table>
       </div>

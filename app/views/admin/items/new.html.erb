@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 mt-5">
-      <div class="col-sm-3 bg-secondary text-light mt-3 mb-4">
+    <div class="col-sm-12">
+      <div class="col-sm-3 bg-secondary text-light mt-3 mr-2">
         <h4>商品新規登録</h4>
       </div>
-      <div class="col-sm-7 mx-auto">
+      <div class="col-sm-8 mx-auto mt-5">
       <%= form_with model: @item, url: admin_items_path, method: :post, local:true do |f| %>
         <div class="form-group row">
           <%= f.label :新規画像, class: 'col-sm-3 control-label' %><br />
-          <%= f.file_field :image, class: 'rounded col-sm-5' %>
+          <%= f.file_field :image, class: 'rounded col-sm-7' %>
         </div>
 
         <div class="form-group row">
           <%= f.label :商品名, class: 'col-sm-3 control-label' %><br />
-          <%= f.text_field :name, class: 'rounded col-sm-5' %>
+          <%= f.text_field :name, :placeholder => "4種のフルーツタルト", class: 'rounded col-sm-5' %>
         </div>
 
         <div class="form-group row">
           <%= f.label :商品説明, class: 'col-sm-3 control-label' %><br />
-          <%= f.text_area :description, class: 'rounded col-sm-5' %>
+          <%= f.text_area :description, :placeholder => "さっぱりした味わいを楽しめます！", class: 'rounded col-sm-5' %>
         </div>
 
         <div class="form-group row">
@@ -27,8 +27,8 @@
         </div>
 
         <div class="form-group row">
-          <%= f.label :税込価格, class: 'col-sm-3 control-label' %><br />
-          <%= f.text_field :no_tax, class: 'rounded col-sm-5' %>
+          <%= f.label :税抜価格, class: 'col-sm-3 control-label' %><br />
+          <%= f.text_field :no_tax, :placeholder => "1000", class: 'rounded col-sm-5' %>
         </div>
 
         <div class="form-group row">

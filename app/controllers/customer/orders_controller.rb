@@ -44,7 +44,6 @@ class Customer::OrdersController < ApplicationController
       @ordered_items.save
     end
     current_customer.cart_items.destroy_all
-    redirect_to orders_complete_path
   end
 
   private
