@@ -16,16 +16,28 @@ class Customer::OrdersController < ApplicationController
   end
 
   def show
-    @oredr = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   #newから送られてきたパラメータの取得
   def confirm
-    @order = Order.new(customer: current_customer)
+    @order =Order.new(order_params)
+    if params[:order][:address_option] == "0"
+      @order.postcode = current_customer.postcode
+      @order.address = current_customer.address
+      @order.name = current_customer.full_name
+    elsif params[:order][:address_option] == "1"
+      @address = Address.find(params[:order][:address_id])
+      @order.postcode = @address.postcode
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:address_option] == "2"
+    end
 
 
     @cart_items = current_customer.cart_items
     @total_price = @cart_items.sum{|cart_item|cart_item.item.no_tax * cart_item.amount * 1.1}
+
 
   end
 
@@ -34,7 +46,4 @@ class Customer::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :postage, :subtotal, :payment_method, :name, :address, :postcode, :status)
   end
 
-  def address_params
-    params.require(:order).permit(:postcode, :address, :name)
-  end
 end
