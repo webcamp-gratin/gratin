@@ -1,7 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :customer
   has_many :ordered_items, dependent: :destroy
-  enum payment_methods: { credit_card: 0, transfer: 1 }
-  enum addresses: { own_address: 0, address: 1, new_address: 2 }
+  enum payment_method: { クレジットカード: 0, 銀行振込: 1 }
+
+  def address_display
+    '〒' + postcode + ' ' + address + ' ' + name
+  end
+
 
 end

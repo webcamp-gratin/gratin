@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <h3>注文情報確認</h3>
     </div>
-      <table class="table tabble-hover table-bordered col-xs-10">
+      <table class="table table-hover table-bordered col-xs-10">
         <thead>
           <tr class="info">
             <th class="col-x-3">商品名</th>
@@ -40,6 +40,7 @@
       <h3>支払方法</h3>
         <%= @order.payment_method %>
       <h3>お届け先</h3>
-      <%= "#{@order.postcode} #{@order.address} 　#{@order.name}" %>
+      <%= "#{@order.postcode} #{@order.address}  #{@order.name}" %>
+      <%= link_to "注文を確定する", orders_complete_path, class: "btn btn-success" %>
   </div>
 </div>
