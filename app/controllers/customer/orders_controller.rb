@@ -41,10 +41,8 @@ class Customer::OrdersController < ApplicationController
     @ordered_items.price = cart_item.item.no_tax
     @ordered_items.amount = cart_item.amount
     @ordered_items.save
-    binding.pry
     end
     current_customer.cart_items.destroy_all
-    redirect_to orders_complete_path
   end
 
   def complete
