@@ -5,12 +5,6 @@ class Customer::OrdersController < ApplicationController
     @addresses = Address.where(customer: current_customer)
   end
 
-  def create
-    @order = Order.new(order_params)
-    @order.save
-    redirect_to orders_confirm_path
-  end
-
   def index
     @orders = Order.all
   end
@@ -34,21 +28,29 @@ class Customer::OrdersController < ApplicationController
     end
     @cart_items = current_customer.cart_items
     @total_price = @cart_items.sum{|cart_item|cart_item.item.no_tax * cart_item.amount * 1.1}
+  end
+
+  def create
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     @order.save
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|
-      @ordered_items = @order.ordered_items.new
-      @ordered_items.item_id = cart_item.item.id
-      @ordered_items.price = cart_item.item.no_tax
-      @ordered_items.amount = cart_item.amount
-      @ordered_items.save
+    @ordered_items = @order.ordered_items.new
+    @ordered_items.item_id = cart_item.item.id
+    @ordered_items.price = cart_item.item.no_tax
+    @ordered_items.amount = cart_item.amount
+    @ordered_items.save
     end
     current_customer.cart_items.destroy_all
   end
 
-  private
-    def order_params
-      params.require(:order).permit(:customer_id, :postage, :subtotal, :payment_method, :name, :address, :postcode, :status)
-    end
+  def complete
+  end
+
+private
+  def order_params
+  params.require(:order).permit(:customer_id, :postage, :subtotal, :payment_method, :name, :address, :postcode, :status)
+  end
 
 end
