@@ -7,7 +7,8 @@
           <td>購入者</td>
           <td>
             <%= link_to admin_customer_path(@order.customer) do %>
-            <%= @order.customer.full_name %>
+            <%= @order.name %>
+            <% end %>
           </td>
         </tr>
         <tr>
@@ -25,14 +26,16 @@
         <tr>
           <td>支払方法</td>
           <td>
-            <%= @order.payment_method %>
+            <%= @order.payment_method_i18n %>
           </td>
         </tr>
         <tr>
           <td>注文ステータス</td>
           <td>
-            <%= f.collection_select(:status, Order.status.keys)  %>
-            <%= link_to "更新", admin_ordered_item_path, class: "btn btn-success" %>
+            <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+              <%= f.select :order_status, Order.statuses_i18n.invert %>
+              <%= f.submit "更新", class: "btn btn-success" %>
+            <% end %>
           </td>
         </tr>
       </table>
@@ -56,7 +59,7 @@
               <%= ordered_item.item.name %>
             </td>
             <td>
-              <%= ((ordered_item.item.no_tax %>
+              <%= ordered_item.item.no_tax %>
             </td>
             <td>
               <%= ordered_item.amount %>
@@ -65,7 +68,7 @@
               <%= ((ordered_item.item.no_tax * 1.1 * ordered_item.amount).floor).to_s(:delimited) %>
             </td>
             <td>
-              <%= ordered_item.collection_select(:Ordered_items.is_active.keys) %>
+              <%= ordered_item.select :making_statusm Ordered_item.making_statuses_i18n.invert) %>
             </td>
             <td>
               <%= link_to "更新", admin_ordered_item_path, class: "btn btn-success" %>
@@ -81,7 +84,7 @@
         </tr>
         <tr>
           <td>送料</td>
-          <% @order.postage%>
+          <% @order.postage %>
           <td>800円</td>
         </tr>
         <tr>
