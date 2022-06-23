@@ -10,6 +10,13 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
+    @ordered_items = @order.ordered_items
+    @order.update(order_params)
+    #if @order.status == "1"
+         #@ordered_items.update_all(making_status: 1)
+    #end
+    redirect_to request.referer
   end
 
   private
