@@ -28,6 +28,7 @@ class Customer::OrdersController < ApplicationController
       @order.name = @address.name
     elsif params[:order][:address_option] == "2"
     end
+
     @cart_items = current_customer.cart_items
     @total_price = @cart_items.sum{|cart_item|cart_item.item.no_tax * cart_item.amount * 1.1}
   end
