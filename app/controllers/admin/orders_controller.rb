@@ -3,6 +3,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.page(params[:page])
   end
 
   def update
