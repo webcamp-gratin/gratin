@@ -1,24 +1,22 @@
 <div class="container">
+  <h4 class="head-line title_h2 text-left mt-3">商品新規登録</h4>
   <div class="row">
     <div class="col-sm-12">
-      <div class="col-sm-3 bg-secondary text-light mt-3 mr-2">
-        <h4>商品新規登録</h4>
-      </div>
       <div class="col-sm-8 mx-auto mt-5">
       <%= form_with model: @item, url: admin_items_path, method: :post, local:true do |f| %>
         <div class="form-group row">
           <%= f.label :新規画像, class: 'col-sm-3 control-label' %><br />
-          <%= f.file_field :image, class: 'rounded col-sm-7' %>
+          <%= f.file_field :image, class: 'image' %>
         </div>
 
         <div class="form-group row">
           <%= f.label :商品名, class: 'col-sm-3 control-label' %><br />
-          <%= f.text_field :name, :placeholder => "4種のフルーツタルト", class: 'rounded col-sm-5' %>
+          <%= f.text_field :name, :placeholder => "商品名", class: 'rounded col-sm-5' %>
         </div>
 
         <div class="form-group row">
           <%= f.label :商品説明, class: 'col-sm-3 control-label' %><br />
-          <%= f.text_area :description, :placeholder => "さっぱりした味わいを楽しめます！", class: 'rounded col-sm-5' %>
+          <%= f.text_area :description, :placeholder => "商品説明", class: 'rounded col-sm-5' %>
         </div>
 
         <div class="form-group row">
@@ -40,7 +38,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "新規登録",class: "btn btn-success col-sm-3 mx-auto d-block" %>
+          <%= f.submit "新規登録",class: "btn btn-success btn-lg col-sm-3 mx-auto d-block" %>
         </div>
       <% end %>
     </div>
