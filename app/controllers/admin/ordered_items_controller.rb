@@ -8,7 +8,7 @@ class Admin::OrderedItemsController < ApplicationController
     if ordered_item_params[:making_status] == "cooking"
       @order.update(status: 3)
     elsif ordered_item_params[:making_status] == "completed"
-      @order.update(status: 4)
+      @order.update(status: 3)
     end
     redirect_to request.referer
   end
