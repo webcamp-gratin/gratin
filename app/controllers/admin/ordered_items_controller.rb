@@ -1,8 +1,8 @@
 class Admin::OrderedItemsController < ApplicationController
   def update
     @ordered_item = OrderedItem.find(params[:id])
+    @order = @ordered_item.order
     @ordered_item.update(ordered_item_params)
-    redirect_to request.referer
   end
 
   private
@@ -10,3 +10,4 @@ class Admin::OrderedItemsController < ApplicationController
     params.require(:ordered_item).permit(:making_status)
   end
 end
+
