@@ -13,11 +13,14 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @ordered_items = @order.ordered_items
     @order.update(order_params)
+    if order_params[:status] == "payment"
+      @ordered_items.update_all(making_status: 1)
+    end
+    redirect_to request.referer
   end
 
   private
 	def order_params
 		  params.require(:order).permit(:status)
 	end
-
 end
