@@ -5,14 +5,14 @@
           credit_card: "クレジットカード"
           transfer: "銀行振込"
         status:
-          chumon: "オーダー待ち"
+          chumon: "入金待ち"
           payment: "入金確認"
           production: "製作中"
           preparation: "発送準備中"
           sent: "発送済み"
       ordered_item:
         making_status:
-          impossible: "制作不可"
+          impossible: "着手不可"
           waiting: "制作待ち"
           cooking: "製作中"
           completed: "制作完了"
