@@ -1,4 +1,6 @@
 class Admin::OrderedItemsController < ApplicationController
+  before_action :authenticate_admin!
+
   def update
     @ordered_item = OrderedItem.find(params[:id])
     @order = @ordered_item.order

@@ -11,8 +11,12 @@ class Customer::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to customer_path
+    if @customer.update(customer_params)
+      flash[:notice] = "更新しました"
+      redirect_to customer_path
+    else
+      render :edit
+    end
   end
 
   def unsubscribe

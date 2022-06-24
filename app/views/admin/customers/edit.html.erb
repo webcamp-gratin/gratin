@@ -1,5 +1,5 @@
 <h2><%= @customer.full_name %>さんの会員情報</h2>
-<%= form_with model: @customer, url: admin_customer_path(@genre.id), method: :patch, local:true do |f| %>
+<%= form_with model: @customer, url: admin_customer_path, method: :patch, local:true do |f| %>
   <table class="table">
     <tr>
       <td>会員ID</td>
