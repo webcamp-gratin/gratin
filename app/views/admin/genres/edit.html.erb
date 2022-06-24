@@ -5,11 +5,7 @@
   <%= form_with model: @genre, url: admin_genre_path, method: :patch, local:true do |f| %>
     <div class="form-inline">
       <%= f.label :ジャンル名, class: "form-control" %>
-<<<<<<< HEAD
       <%= f.text_field :name, :placeholder => "ジャンル名", class: "form-control" %>
-=======
-      <%= f.text_field :name, :placeholder => "ジャンル名",  class: "form-control" %>
->>>>>>> origin/develop
     </div>
     <div class="form_action row">
       <%= f.submit "変更を保存", class: "btn btn-success" %>
