@@ -29,8 +29,10 @@ class Customer::CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(amount: params[:cart_item][:amount].to_i)
-    redirect_to cart_items_path
+    if @cart_item.update(amount: params[:cart_item][:amount].to_i)
+      flash[:notice] = "数量変更しました"
+      redirect_to cart_items_path
+    end
   end
 
   def destroy
