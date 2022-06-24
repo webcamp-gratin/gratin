@@ -6,7 +6,7 @@ class Admin::OrderedItemsController < ApplicationController
     @order = @ordered_item.order
     @ordered_item.update(ordered_item_params)
     if ordered_item_params[:making_status] == "cooking"
-      @order.update(status: 3)
+      @order.update(status: 2)
     elsif ordered_item_params[:making_status] == "completed"
       @order.update(status: 3)
     end
