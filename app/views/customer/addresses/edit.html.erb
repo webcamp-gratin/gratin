@@ -1,5 +1,6 @@
 <div>
   <h2>配送先編集</h2>
+  <%= render 'layouts/error', model: @address %>
     <%= form_with(model: @address, url:address_path, local: true ,method: :patch) do |f| %>
       <table>
         <tr>
