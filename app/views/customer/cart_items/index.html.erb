@@ -58,6 +58,8 @@
       <span>
         <% if @cart_items.any? %>
           <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success"%>
+        <% else %>
+          カートが空です
         <% end %>
       </span>
     </div>
