@@ -1,4 +1,4 @@
-<h2><%= @customer.full_name %>さんの会員情報</h2>
+<h4 class="table-active"><%= @customer.full_name %>さんの会員情報</h4>
 <%= render 'layouts/error', model: @customer %>
 <%= form_with model: @customer, url: admin_customer_path, method: :patch, local:true do |f| %>
   <table class="table">
