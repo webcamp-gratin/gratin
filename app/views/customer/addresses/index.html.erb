@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>配送先登録/一覧</h2>
+  <h4 class="table-active col-auto">配送先登録/一覧</h4>
   <%= render 'layouts/error', model: @address %>
   <div class="row">
     <%= form_with(model: @address, :url => {:controller => "customer/addresses"}) do |f| %>
