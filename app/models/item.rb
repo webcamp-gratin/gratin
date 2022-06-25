@@ -12,4 +12,14 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :genre_id, presence: true
 
+  def self.search_for(content)
+    if content != ""
+      Item.where('name LIKE ?', '%'+content+'%')
+    else
+      Item.all
+    end
+
+  end
+
+
 end
