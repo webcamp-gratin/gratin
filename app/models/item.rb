@@ -12,11 +12,14 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :genre_id, presence: true
 
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @item = Item.where("name LIKE?", "#{word}")
+  def self.search_for(content)
+    if content != ""
+      Item.where('name LIKE ?', '%'+content+'%')
     else
-      @item = Item.all
+      Item.all
     end
+
   end
+
+
 end

@@ -1,9 +1,10 @@
 class SearchesController < ApplicationController
 
   def search
-    @range = params[:range]
-    @range == "Item"
-    @items = Item.looks(params[:search], params[:word])
-  end
+		@model = params[:model]
+		@content = params[:content]
+		@model == 'item'
+		@records = Item.search_for(@content)
+	end
 
 end
