@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-10">
-      <h4 class="table-active col-auto">注文情報確認</h4>
+      <h4 class="table-active col-3">注文情報確認</h4>
       <%= render 'layouts/error', model: @order %>
     </div>
+  </div>
+  <div class="row" %>
     <table class="table table-hover table-bordered col-xs-10">
       <thead>
         <tr class="info", style="background-color: gray:">
-          <th class="col-x-3">商品名</th>
-          <th class="col-x-3">単価(税込)</th>
-          <th class="col-x-3">数量</th>
+          <th bgcolor="#f5f5f5">商品名</th>
+          <th bgcolor="#f5f5f5">単価(税込)</th>
+          <th bgcolor="#f5f5f5">数量</th>
           <th class="col-x-3">小計</th>
         </tr>
       </thead>
@@ -24,22 +26,23 @@
         <% end %>
       </tbody>
     </table>
-    <table class="table">
+    <table class="table table-hover table-bordered col-4">
       <tr>
-        <th>送料</th>
+        <th bgcolor="#f5f5f5">送料</th>
         <% @order.postage = 800 %>
         <th><%= @order.postage %></th>
       </tr>
       <tr>
-        <th>商品合計</th>
+        <th bgcolor="#f5f5f5">商品合計</th>
         <th><%= ((@total_price).floor).to_s(:delimited) %></th>
       </tr>
       <tr>
-        <th>請求金額</th>
+        <th bgcolor="#f5f5f5">請求金額</th>
         <% @order.subtotal = @order.postage + @total_price.to_i %>
         <th><%= (@order.subtotal.floor).to_s(:delimited) %></th>
       </tr>
     </table>
+  </div>
     <h3>支払方法</h3>
       <%= @order.payment_method_i18n %>
     <h3>お届け先</h3>
