@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <h4 class="table-active">注文履歴一覧</h4>
+    <h4 class="table-active mt-3">注文履歴一覧</h4>
   </div>
   <div class="row">
-  	<div class ="col-12">
+  	<div class ="col-11">
   		<table class="table table-hover col-xs-10 mt-5">
   		  <thead class="table-active">
   		    <tr>
@@ -18,7 +18,7 @@
   		    <% @orders.each do |order| %>
   		      <tr>
   		        <td class="col-xs-2">
-  		          <%= link_to order.created_at.strftime("%Y-%m-%-d %H:%M:%S"),admin_order_path(order)  %>
+  		          <%= link_to order.created_at.strftime("%Y/%m/%-d %H:%M:%S"),admin_order_path(order), class: "border-bottom text-dark" %>
   		        </td>
   		        <td class="col-xs-3">
   		          <%= order.customer.first_name+" "+order.customer.last_name %>

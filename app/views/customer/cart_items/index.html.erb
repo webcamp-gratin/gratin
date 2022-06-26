@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
+    <h4 class="table-active mt-3">ショッピングカート</h4>
+  </div>
+  <div class="row">
     <div class="col-sm-12 mt-4">
-      <h4>ショッピングカート</h4>
       <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class: "btn btn-danger float-right mb-3" %>
       <table class="table table-bordered col-sm-12">
         <thead>
           <tr class="info">
-            <th style="width: 40%">商品名</th>
-            <th style="width: 15%">単価（税込）</th>
-            <th style="width: 15%">数量</th>
-            <th style="width: 15%">小計</th>
-            <th style="width: 15%"></th>
+            <th bgcolor="#f5f5f5" style="width: 40%">商品名</th>
+            <th bgcolor="#f5f5f5" style="width: 15%">単価（税込）</th>
+            <th bgcolor="#f5f5f5" style="width: 15%">数量</th>
+            <th bgcolor="#f5f5f5" style="width: 15%">小計</th>
+            <th bgcolor="#f5f5f5" style="width: 15%"></th>
           </tr>
         </thead>
         <tbody>
@@ -39,7 +41,7 @@
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary mt-4 ml-4" %>
       <table class="table table-bordered col-sm-4 float-right mt-3 ml-5">
         <tr>
-          <td>合計金額</td>
+          <td bgcolor="#f5f5f5">合計金額</td>
           <td><%= ((@total_price).floor).to_s(:delimited) %></td>
         </tr>
       </table>
