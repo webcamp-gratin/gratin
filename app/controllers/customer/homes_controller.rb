@@ -1,6 +1,6 @@
 class Customer::HomesController < ApplicationController
 
   def top
-    @items = Item.all.order(created_at: :desc)
+    @items = Item.order('id DESC').limit(4)
   end
 end
