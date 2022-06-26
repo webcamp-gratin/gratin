@@ -1,7 +1,8 @@
 <div class="container">
-  <h4 class="head-line title_h2 text-left mt-3 table-active">商品新規登録</h4>
-  <%= render 'layouts/error', model: @item  %>
   <div class="row">
+    <h4 class="head-line title_h2 text-left mt-3 table-active">商品新規登録</h4>
+    <%= render 'layouts/error', model: @item  %>
+  </div>
     <div class="col-sm-12">
       <div class="col-sm-8 mx-auto mt-5">
       <%= form_with model: @item, url: admin_items_path, method: :post, local:true do |f| %>
@@ -17,7 +18,7 @@
 
         <div class="form-group row">
           <%= f.label :商品説明, class: 'col-sm-3 control-label' %><br />
-          <%= f.text_area :description, :placeholder => "商品説明", class: 'rounded col-sm-5' %>
+          <%= f.text_area :description, :placeholder => "ここに説明文を記述します", class: 'rounded col-sm-5' %>
         </div>
 
         <div class="form-group row">

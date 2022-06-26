@@ -1,8 +1,12 @@
 <div class="container">
-  <h4 class="table-active"><%= @customer.full_name %>さんの会員詳細</h4>
+  <div class="row">
+    <div class="col-4">
+      <h4 class="table-active text-center"><%= @customer.full_name %>さんの会員詳細</h4>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-8 col-md-offset-1 mt-3">
-      <table>
+      <table class="table table-borderless">
         <tr>
           <th class="col-sm-3">会員ID</th>
           <th class="col-sm-5"><%= @customer.id %></th>
