@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row">
-    <h4>注文履歴</h4>
-    <div class="col">
-      <table class="table">
+    <h4 class="table-active">注文履歴詳細</h4>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-borderless">
         <tr>
-          <td>購入者</td>
+          <th class="col-2">購入者</th>
           <td>
             <%= link_to admin_customer_path(@order.customer) do %>
             <%= @order.name %>
@@ -12,39 +14,42 @@
           </td>
         </tr>
         <tr>
-          <td>注文日</td>
+          <th>注文日</th>
           <td>
             <%= @order.created_at.strftime('%Y/%m/%d') %>
           </td>
         </tr>
         <tr>
-          <td>配送先</td>
+          <th>配送先</th>
           <td>
             〒<%= @order.postcode %><%= @order.address %><br/>
             <%= @order.name %>
           </td>
         </tr>
         <tr>
-          <td>支払方法</td>
+          <th>支払方法</th>
           <td>
             <%= @order.payment_method_i18n %>
           </td>
         </tr>
         <tr>
-          <td>注文ステータス</td>
+          <th>注文ステータス</th>
           <td>
             <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
-              <%= f.select :status, Order.statuses_i18n.invert %>
-              <%= f.submit "更新", class: "btn btn-success" %>
+            <%= f.select :status, Order.statuses_i18n.invert %>
+            <%= f.submit "更新", class: "btn btn-success" %>
             <% end %>
           </td>
         </tr>
       </table>
     </div>
-    <div class="col">
-      <table class="table">
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-borderless border-bottom">
         <thead>
-          <tr>
+          <tr class="table-active">
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
@@ -80,20 +85,23 @@
           <% end %>
         </tbody>
       </table>
-      <table class="table" >
+    </div>
+
+    <div class="col-3 ml-5">
+      <table class="table table-borderless text-right">
         <tr>
-          <td>商品合計</td>
-          <td><%=((@total_price).floor).to_s(:delimited) %></td>
+          <th class="text-left">商品合計</th>
+          <td><%=((@total_price).floor).to_s(:delimited) %>円</td>
         </tr>
         <tr>
-          <td>送料</td>
+          <th class="text-left">送料</th>
           <% @order.postage %>
-          <td>800</td>
+          <td>800円</td>
         </tr>
         <tr>
-          <td>請求金額合計</td>
+          <th class="text-left">請求金額合計</th>
           <% @order.subtotal = @order.postage + @total_price.to_i %>
-          <td><%= (@order.subtotal.floor).to_s(:delimited) %></td>
+          <td><%= (@order.subtotal.floor).to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
