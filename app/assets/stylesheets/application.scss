@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +44,114 @@
   margin-top: 30px;
 }
 
+table.customer-table {
+  border-collapse: collapse;
+  height : 300px;
+  margin-bottom: 30px;
+}
+
+table.customer-table th {
+  border: 1px solid black;
+}
+
+.unsubscribe-title {
+  margin-top: 150px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.unsubscribe-body {
+  margin-top: 35px;
+  font-size: 25px;
+}
+
+.unsubscribe-btn {
+  margin-top: 50px;
+  margin-bottom: 200px;
+}
+
 .pagination {
   justify-content: center;
+}
+
+.search-container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 0px 1px;
+  width: 205px;
+  overflow: hidden;
+}
+
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1.3em;
+  border: none;
+  background: none;
+  color: #3879D9;
+  position: absolute;
+  width: 0.5em;
+  height: 2.5em;
+  right: 0;
+  top: -10px;
+  outline : none;
+}
+
+.cart-item-bn{
+  width: 40px;
+  height: 35px;
+}
+
+.select_design {
+  overflow: hidden;
+  width: 70px; /*** セレクトボックスの横幅 ***/
+  text-align: center;
+  position: relative;
+  border: 1px solid #bbbbbb; /*** セレクトボックスのボーター設定 ***/
+  border-radius: 5px; /*** セレクトボックスの角丸 ***/
+  background: #ffffff; /*** セレクトボックスの背景色 ***/
+}
+.select_design select {
+  width: 100%;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 8px 38px 8px 8px;
+  color: #666666;
+  line-height: 1.5;
+}
+.select_design select::-ms-expand {
+  display: none;
+}
+.select_design::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  content: '';
+  border-top: 2px solid #ffffff; /*** 矢印の色 ***/
+  border-right: 2px solid #ffffff; /*** 矢印の色 ***/
+  pointer-events: none;
+  z-index: 1;
+  transform: rotate(135deg);
+}
+.select_design:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 38px;
+  content: '';
+  background: #76c0c3; /*** 右側の背景色 ***/
+  pointer-events: none;
 }
