@@ -4,12 +4,12 @@
       <a class="navbar-brand" href="/">
         <img src="/assets/GRATIN.png" alt="" width="100" height="100">
       </a>
-      <p id="customer_name", class='justify-content-center'>ようこそ、<%= current_customer.first_name %>さん！</p>
       <nav>
         <div class="float-right">
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav d-flex align-items-right">
               <% if customer_signed_in? %>
+                <p id="customer_name", class='justify-content-center'>ようこそ、<%= current_customer.first_name %>さん！</p>
                 <li class="nav-item mr-3">
                   <%= link_to 'マイページ', customer_path(current_customer), class: 'btn btn-sm btn-outline-secondary nav-link text-dark' %>
                 </li>
