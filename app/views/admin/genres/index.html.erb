@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class=col-auto>
+    <div class="col-auto">
       <h4 class="table-active">ジャンルの一覧・追加</h4></br>
     </div>
   </div>
-  <%= render 'layouts/error', model: @genre  %>
+  <%= render 'layouts/error', model: @genre %>
     <%= form_with model: @genre, url: admin_genres_path, method: :post, local:true do |f| %>
       <div class="form-inline">
         <%= f.label :ジャンル名, class: "col-3" %>
