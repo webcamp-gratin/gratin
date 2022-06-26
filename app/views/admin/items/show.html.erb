@@ -10,35 +10,35 @@
       <div class="col-8">
         <table class="table table-borderless">
           <tr>
-            <th>商品名</th>
-            <th><%= @item.name %></th>
+            <td>商品名</td>
+            <td><%= @item.name %></td>
           </tr>
           <tr>
-            <th>商品説明</th>
-            <th><%= @item.description %></th>
+            <td>商品説明</td>
+            <td><%= @item.description %></td>
           </tr>
           <tr>
-            <th>ジャンル</th>
-            <th><%= @item.genre.name %></th>
+            <td>ジャンル</td>
+            <td><%= @item.genre.name %></td>
           </tr>
           <tr>
-            <th>税込価格（税抜価格）</th>
-            <th>
+            <td>税込価格（税抜価格）</td>
+            <td>
               <%= ((@item.no_tax * 1.1).floor).to_s(:delimited) %>(<%= (@item.no_tax).to_s(:delimited) %>)円
-            </th>
+            </td>
           </tr>
           <tr>
-            <th>販売ステータス</th>
-            <th>
+            <td>販売ステータス</td>
+            <td>
               <% if @item.is_active == true %>
                 販売中
               <% else %>
                 売切れ
               <% end %>
-            </th>
+            </td>
           </tr>
-          <tr>
-            <th><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success btn-lg mx-auto d-block mt-3" %></th>
+          <tr class="text-center">
+            <td><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success btn-lg mt-3" %></td>
           </tr>
         </table>
       </div>
