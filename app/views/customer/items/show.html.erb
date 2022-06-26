@@ -4,18 +4,26 @@
       <%= image_tag @item.image, accept: "image/*", size: '200x200' %>
     </div>
     <div class="col-lg-8 mt-3">
-      <%= @item.name %>
-      <%= @item.description %>
-      <%= (@item.no_tax * 1.1).floor %>(税込)
-      <%= form_with model: @cart_item, url: cart_items_path(@cart_item) do |f| %>
-        <%= f.hidden_field :item_id  , :value => @item.id %>
-        <%= f.select :amount, *[1..10] %>
-        <% if @item.is_active %>
-          <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
-        <% else %>
-          売り切れ中です。
+      <div class="col-4">
+        <p class="h4 font-weight-bold"><%= @item.name %></p>
+      </div>
+      <div class="col-4 mt-3">
+        <%= @item.description %>
+      </div>
+      <div class="col-4 mt-5 font-weight-bold h5">
+        ¥ <%= (@item.no_tax * 1.1).floor.to_s(:delimited) %>(税込)
+      </div>
+      <div class="col-4 mt-3 d-inline">
+        <%= form_with model: @cart_item, url: cart_items_path(@cart_item) do |f| %>
+          <%= f.hidden_field :item_id  , :value => @item.id %>
+          <%= f.select :amount, *[1..10], prompt: "個数選択 " %>
+          <% if @item.is_active %>
+            <%= f.submit "カートに入れる", class: 'btn btn-success ml-5' %>
+          <% else %>
+            売り切れ中です。
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
