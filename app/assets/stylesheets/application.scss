@@ -22,3 +22,22 @@
 .order{
   display: flex;
 }
+.main-visual{
+  width: 1000px;
+  height: 400px;
+  background-image: url(top_cake.jpg);
+  background-size: cover;
+  background-position: top;
+  margin-bottom: 20px;
+}
+
+.introduction{
+  color: #fff;
+  text-align: right;
+  padding-top: 50px;
+
+}
+
+.introduction{
+  margin-top: 30px;
+}

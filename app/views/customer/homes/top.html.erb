@@ -1,16 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-9">
-      <img src="/assets/top_cake.jpg" alt="" width="1000" height="500">
-      <p>ようこそ、ながのCAKEへ！</p>
-      <p>このサイトは、ケーキ販売のECサイトになります。</p>
-      <p>会員でない方も商品の閲覧はできますが、</p>
-      <p>購入には会員登録が必要になります。</p>
+    <div class="col-12">
+      <div class="main-visual">
+        <div class="introduction">
+          <p>
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-  <p>新着商品</p>
-  <div class="row">
-    <% @items.each do |item| %>
+    <h2>新着商品</h2>
+      <div class="d-flex">
+      <% @items.each do |item| %>
       <div>
         <%= link_to item_path(item.id) do %>
           <%= image_tag item.image, accept: "image/*", size:'150x100' %>
@@ -18,9 +23,10 @@
         <%= item.name %>
         ¥<%= ((item.no_tax).floor).to_s(:delimited) %>
       </div>
-    <% end %>
-  </div>
-  <div class="row">
+      <% end %>
+    </div>
+    <div class="col">
     <%= link_to '全ての商品をみる>',items_path %>
+    </div>
   </div>
-</div>
+    </div>
