@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="bg-secondary text-light mt-3">
-      <h2>ログイン</h2>
+    <div class="mt-3">
+      <h4 class="table-active col-8 text-center">ログイン</h4>
+      <p class="table-active mt-5 ml-2">会員の方はこちらからログイン</p>
     </div>
-    <p class="bg-secondary text-light mt-3 ml-2">会員の方はこちらからログイン</p>
     <div class="col-12 mt-5 ml-5">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "admin/shared/error_messages", resource: resource %>
@@ -23,15 +23,16 @@
           <!--</div>-->
         <%# end %>
 
-        <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-primary col-sm-2 mx-auto d-block" %>
+        <div class="actions col-7 text-center">
+          <%= f.submit "ログイン", class: "btn btn-primary mt-3" %>
         </div>
       <% end %>
-
-      <p class="bg-secondary text-light mt-3 ml-2">会員登録がお済みでない方は</p>
-      <div class="col-12 mt-5 ml-5">
+    </div>
+    <div class="col-4">
+      <p class="table-active mt-3 ml-2 text-center">会員登録がお済みでない方は</p>
+    </div>
+    <div class="col-12 ml-5">
         <%= link_to 'こちら', new_customer_registration_path %>から新規登録を行なってください。
-      </div>
     </div>
   </div>
 </div>
