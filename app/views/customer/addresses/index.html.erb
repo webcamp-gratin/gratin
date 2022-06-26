@@ -1,5 +1,7 @@
 <div class="container">
-  <h4 class="table-active col-auto mt-3">配送先登録/一覧</h4>
+  <div class="row">
+    <h4 class="table-active col-auto mt-3">配送先登録/一覧</h4>
+  </div>
   <%= render 'layouts/error', model: @address %>
   <div class="row">
     <div class="col-sm-10 mt-4 mb-3">
@@ -26,10 +28,10 @@
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
-            <th style="width: 15%">郵便番号</th>
-            <th style="width: 40%">住所</th>
-            <th style="width: 15%">宛名</th>
-            <th style="width: 30%"></th>
+            <td bgcolor="#f5f5f5" style="width: 15%">郵便番号</td>
+            <td bgcolor="#f5f5f5" style="width: 40%">住所</td>
+            <td bgcolor="#f5f5f5" style="width: 15%">宛名</td>
+            <td bgcolor="#f5f5f5" style="width: 30%"></td>
           <tr>
         </thead>
         <% @addresses.each do |addresses| %>

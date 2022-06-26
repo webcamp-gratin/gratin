@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
-    <h4 class="table-active">注文履歴詳細</h4>
+    <h4 class="table-active mt-3">注文履歴詳細</h4>
   </div>
   <div class="row">
     <div class="col-12">
       <table class="table table-borderless">
         <tr>
-          <th class="col-2">購入者</th>
+          <th class="col-2 ">購入者</th>
           <td>
-            <%= link_to admin_customer_path(@order.customer) do %>
+            <%= link_to admin_customer_path(@order.customer), class: "border-bottom text-dark" do %>
             <%= @order.name %>
             <% end %>
           </td>
@@ -37,7 +37,7 @@
           <td>
             <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
             <%= f.select :status, Order.statuses_i18n.invert %>
-            <%= f.submit "更新", class: "btn btn-success" %>
+            <%= f.submit "更新", class: "btn btn-success ml-4" %>
             <% end %>
           </td>
         </tr>
@@ -54,7 +54,7 @@
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
-            <th>制作ステータス</th>
+            <th>製作ステータス</th>
             <th></th>
           </tr>
         </thead>
@@ -101,7 +101,7 @@
         <tr>
           <th class="text-left">請求金額合計</th>
           <% @order.subtotal = @order.postage + @total_price.to_i %>
-          <td><%= (@order.subtotal.floor).to_s(:delimited) %>円</td>
+          <td class="font-weight-bold"><%= (@order.subtotal.floor).to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-auto">
+    <div class="col-auto mt-3">
       <h4 class="table-active">ジャンル編集</h4>
     </div>
   </div>
   <div class="row">
-    <div class="col-8">
+    <div class="col-8 mt-4">
       <%= render 'layouts/error', model: @genre %>
       <%= form_with model: @genre, url: admin_genre_path, method: :patch, local:true do |f| %>
         <div class="form-inline">
