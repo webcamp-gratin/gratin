@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 * {
   margin: 0;
   padding: 0;
@@ -21,4 +22,18 @@
 
 .order{
   display: flex;
+}
+
+table.customer-table {
+  border-collapse: collapse;
+  height : 300px;
+  margin-bottom: 30px;
+}
+
+table.customer-table th {
+  border: 1px solid black;
+}
+
+.unsubscribe{
+  font-size: 25px;
 }
