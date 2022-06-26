@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="bg-secondary text-light mt-3">
-      <h2>新規会員登録</h2>
-    </div>
+      <h2 class="table-active col-3 text-center">新規会員登録</h2>
     <div class="col-sm-12 mt-5">
       <%= form_with model: @customer, url: customer_registration_path, method: :post,  local:true do |f| %>
         <%= render "admin/shared/error_messages", resource: resource %>
@@ -59,7 +57,7 @@
         </div>
 
       <% end %>
-      <p>既に登録済みの方</p>
+      <h4 class="table-active col-3 text-center">既に登録済みの方</h4>
 
       <%= link_to "こちら", new_customer_session_path %>
       <span> からログインしてください。</span>
